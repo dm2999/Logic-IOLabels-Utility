@@ -1,23 +1,22 @@
 # Logic IOLabels Utility
 
-A macOS utility for managing **Logic Pro I/O Labels** quickly and safely.
+A macOS utility for managing **Logic Pro's Mixer I/O Labels stored in the preferences file** quickly and safely.
 
 ---
 
 ## ✨ Features
 
-* 📦 Backup current I/O Labels (plist / CSV)
+* 📦 Backup current I/O Labels and controller assignments (plist / CSV)
 * 🔄 Recall backups safely
 * 📄 Import & export CSV (human-readable)
 * 👀 CSV preview before import
-* 🧠 Smart rules (auto-handling of Logic label types)
 * ⚡ Fast and lightweight
 
 ---
 
 ## 🛠 How It Works
 
-The app modifies the **Logic Pro I/O Labels plist** while preserving all other settings.
+The app modifies the **Logic Pro preferences** while preserving all other settings.
 
 Workflow:
 
@@ -36,12 +35,6 @@ Human-readable types:
 * Mono Output
 * Stereo Output
 * Bus
-
-Rules:
-
-* If `lname` is not empty → `opt = 4`
-* If empty → `opt = 1`
-
 ---
 
 ## 🚀 Getting Started
