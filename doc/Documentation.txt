@@ -1,0 +1,180 @@
+LOGIC IOLABELS UTILITY – DOCUMENTATION v2.1
+
+---
+
+## OVERVIEW
+
+Logic IOLabels Utility is a macOS application designed to manage Logic Pro I/O Labels safely and efficiently.
+
+It provides a clean user interface that allows users to:
+
+• Create backups of Logic I/O Labels
+• Recall previous configurations
+• Import labels from CSV (human readable format)
+
+The app modifies only the I/O Label section of Logic’s preferences, ensuring all other settings remain untouched.
+
+---
+
+---
+
+## CORE FEATURES
+
+1. BACKUP SYSTEM
+   • Create named backups of current Logic I/O Labels
+   • Optional inclusion of:
+
+* Preferences (.plist)
+* Controller Assignments (.cs)
+  • Automatic backup list refresh
+
+2. RECALL SYSTEM
+   • Select backup from list
+   • Restore:
+
+* The Mixer IO Labels in Logic's Preferences (.plist)
+* Controller Assignments in Logic (.cs)
+  • File existence validation (prevents false success messages)
+
+3. CSV IMPORT
+   • Import human-editable CSV files
+   • Converts CSV → Logic IOLabels format
+   • Preview before import
+
+Supported types:
+
+* Mono Input
+* Stereo Input
+* Mono Output
+* Stereo Output
+* Bus
+
+Internal mapping:
+
+type_65 → Mono Input
+type_73 → Stereo Input
+type_68 → Mono Output
+type_76 → Stereo Output
+type_69 → Bus
+
+Validation rule:
+
+If lname is not empty → opt = 4
+If lname is empty → opt = 1
+
+---
+
+---
+
+## ARCHITECTURE
+
+The application consists of:
+
+• Native macOS application layer
+• Custom user interface
+• File-based data handling
+
+All operations are performed locally on the user's system.
+
+---
+
+---
+
+## UI STRUCTURE
+
+The interface includes:
+
+• Sidebar navigation
+• Main content panel
+• Status bar
+
+All interactions are dynamic and update in real time.
+
+---
+
+---
+
+## BACKUP FLOW
+
+1. User enters name + options
+2. Validation runs
+3. Backup is created
+4. Files are copied
+5. Backup list refreshes
+6. Status updates
+
+---
+
+---
+
+## RECALL FLOW
+
+1. User selects backup
+2. Chooses file types
+3. File existence is validated
+4. Files are restored
+5. Status updates
+
+---
+
+---
+
+## CSV IMPORT FLOW
+
+1. User selects CSV file
+2. File is parsed
+3. Preview is generated
+4. Validation runs
+5. Data is converted to IOLabels
+6. Preferences are updated
+
+---
+
+---
+
+## IMPORTANT DESIGN DECISIONS
+
+• Standalone macOS application (no external tools required)
+• Safe plist editing (partial replacement only)
+• Human-readable CSV format
+• Non-destructive workflow via backups
+
+---
+
+---
+
+## LIMITATIONS
+
+• No automatic live refresh (UI reload used)
+• File picker may not remember last location reliably
+• No delete backup feature yet
+• App is not signed (macOS warning on first launch)
+
+---
+
+---
+
+## FUTURE IMPROVEMENTS
+
+• Delete backups
+• Search/filter backups
+• Live UI updates (no reload)
+• Improved file picker behavior
+• App signing & notarization
+• DMG installer
+
+---
+
+---
+
+## SUMMARY
+
+Logic IOLabels Utility provides a safe and efficient way to manage Logic Pro I/O Labels by combining:
+
+• Backup and restore functionality
+• CSV-based editing
+• A clean and focused user interface
+
+The result is a practical tool that integrates seamlessly into a professional Logic Pro workflow.
+
+---
